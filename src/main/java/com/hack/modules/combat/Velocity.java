@@ -1,8 +1,8 @@
 package com.hack.modules.combat;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * Velocity — reduces or cancels knockback when you get hit.
@@ -21,7 +21,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
  */
 public class Velocity extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     public final Setting horizontal = new Setting("Horizontal", 100.0f, 0.0f, 100.0f);
     public final Setting vertical   = new Setting("Vertical",    50.0f, 0.0f, 100.0f);
@@ -45,7 +45,7 @@ public class Velocity extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         double vx = p.getVelocity().x;

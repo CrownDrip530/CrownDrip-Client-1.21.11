@@ -1,7 +1,7 @@
 package com.hack.modules.combat;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 
 /**
  * Derp — looks straight up or down alternating every tick.
@@ -9,7 +9,7 @@ import net.minecraft.client.MinecraftClient;
  */
 public class Derp extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     private int tick = 0;
 
     public Derp() { super("Derp", "Combat"); }

@@ -1,8 +1,8 @@
 package com.hack.modules.movement;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * NoFall - Never take fall damage.
@@ -16,7 +16,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
  */
 public class NoFall extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     public NoFall() {
         super("NoFall", "Movement");
@@ -25,7 +25,7 @@ public class NoFall extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         // Reset client-side fall distance to prevent damage flash

@@ -1,8 +1,8 @@
 package com.hack.modules.movement;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * LongJump — massive horizontal boost when you jump.
@@ -10,7 +10,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
  */
 public class LongJump extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting powerSetting = new Setting("Power", 3.0f, 1.0f, 10.0f);
     private boolean wasOnGround = false;
 
@@ -23,7 +23,7 @@ public class LongJump extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         boolean onGround = p.isOnGround();

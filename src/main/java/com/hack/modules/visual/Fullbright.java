@@ -1,7 +1,7 @@
 package com.hack.modules.visual;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 
 /**
  * Fullbright - Makes everything fully lit.
@@ -11,7 +11,7 @@ import net.minecraft.client.MinecraftClient;
  */
 public class Fullbright extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     private double originalGamma = 1.0;
 
     public Fullbright() {

@@ -1,8 +1,8 @@
 package com.hack.modules.movement;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * SpeedHack - Run faster than normal.
@@ -14,7 +14,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
  */
 public class SpeedHack extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting speedSetting = new Setting("Speed", 0.5f, 0.1f, 2.0f);
 
     public SpeedHack() {
@@ -26,7 +26,7 @@ public class SpeedHack extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         boolean forward  = mc.options.forwardKey.isPressed();

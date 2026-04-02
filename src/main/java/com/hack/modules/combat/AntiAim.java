@@ -1,7 +1,7 @@
 package com.hack.modules.combat;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 
 /**
  * AntiAim — spins your head randomly to confuse enemy KillAura targeting.
@@ -9,7 +9,7 @@ import net.minecraft.client.MinecraftClient;
  */
 public class AntiAim extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting modeSetting = new Setting("Mode", 0.0f, 0.0f, 2.0f);
     private int tick = 0;
 

@@ -3,11 +3,11 @@ package com.hack.modules.visual;
 import com.hack.HackClient;
 import com.hack.modules.HackModule;
 import com.hack.modules.combat.KillAura;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 /**
  * TargetESP — draws a special highlighted box around KillAura's current target.
@@ -17,7 +17,7 @@ import net.minecraft.util.math.Vec3d;
  */
 public class TargetESP extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     private int animTick = 0;
 
     public TargetESP() {

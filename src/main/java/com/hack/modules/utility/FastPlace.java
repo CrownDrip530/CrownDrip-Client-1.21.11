@@ -2,7 +2,7 @@ package com.hack.modules.utility;
 
 import com.hack.mixins.MinecraftClientAccessor;
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 
 /**
  * FastPlace — removes the delay between placing blocks.
@@ -10,7 +10,7 @@ import net.minecraft.client.MinecraftClient;
  */
 public class FastPlace extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     public FastPlace() { super("FastPlace", "Utility"); }
 

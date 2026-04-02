@@ -2,8 +2,8 @@ package com.hack.mixins;
 
 import com.hack.HackClient;
 import com.hack.modules.movement.Step;
-import net.minecraft.entity.Entity;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -22,7 +22,7 @@ public class StepMixin {
     private void onGetStepHeight(CallbackInfoReturnable<Float> cir) {
         if (HackClient.moduleManager == null) return;
 
-        MinecraftClient mc = MinecraftClient.getInstance();
+        MinecraftClient mc = Minecraft.getInstance();
         if (mc.player == null) return;
 
         // Only override for local player

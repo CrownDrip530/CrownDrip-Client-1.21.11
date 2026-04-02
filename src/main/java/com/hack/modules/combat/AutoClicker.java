@@ -1,7 +1,7 @@
 package com.hack.modules.combat;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 
 /**
  * AutoClicker - Automatically left-clicks at a set CPS (clicks per second).
@@ -23,7 +23,7 @@ import net.minecraft.client.MinecraftClient;
  */
 public class AutoClicker extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting cpsSetting = new Setting("CPS", 10.0f, 1.0f, 20.0f);
 
     private int tickCounter = 0;
@@ -64,7 +64,7 @@ public class AutoClicker extends HackModule {
             // Attack the currently targeted entity via interactionManager
             if (mc.targetedEntity != null && mc.interactionManager != null) {
                 mc.interactionManager.attackEntity(mc.player, mc.targetedEntity);
-                mc.player.swingHand(net.minecraft.util.Hand.MAIN_HAND);
+                mc.player.swingHand(net.minecraft.world.InteractionHand.MAIN_HAND);
             }
             tickCounter = 0;
             scheduleNextClick();

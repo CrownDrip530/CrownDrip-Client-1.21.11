@@ -1,8 +1,8 @@
 package com.hack.modules.utility;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * NoClip - Walk through solid blocks.
@@ -28,7 +28,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
  */
 public class NoClip extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     public NoClip() {
         super("NoClip", "Utility");
@@ -47,7 +47,7 @@ public class NoClip extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         // Keep noClip true every tick (game resets it)

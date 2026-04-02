@@ -1,8 +1,8 @@
 package com.hack.modules.utility;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.screen.slot.SlotActionType;
@@ -15,7 +15,7 @@ import net.minecraft.screen.slot.SlotActionType;
  */
 public class AutoArmor extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     private int cooldown = 0;
 
     public AutoArmor() { super("AutoArmor", "Utility"); }
@@ -23,7 +23,7 @@ public class AutoArmor extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null || mc.interactionManager == null) return;
         if (cooldown > 0) { cooldown--; return; }
 

@@ -1,9 +1,9 @@
 package com.hack.modules.utility;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
-import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 
 /**
@@ -13,7 +13,7 @@ import net.minecraft.util.hit.HitResult;
  */
 public class ClickTP extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     public ClickTP() { super("ClickTP", "Utility"); }
 

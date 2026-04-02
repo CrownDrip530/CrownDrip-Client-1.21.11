@@ -2,12 +2,12 @@ package com.hack.modules.combat;
 
 import com.hack.HackClient;
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.Box;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.phys.AABB;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class KillAura extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     private LivingEntity currentTarget = null;
 
     public final Setting rangeSetting    = new Setting("Range",    4.0f, 1.0f, 10.0f);
@@ -48,7 +48,7 @@ public class KillAura extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity player = mc.player;
+        LocalPlayer player = mc.player;
         if (player == null || mc.world == null) return;
 
         int ticksPerAttack = Math.max(1, (int)(20.0f / cpsSetting.value));
@@ -92,7 +92,7 @@ public class KillAura extends HackModule {
 
     public LivingEntity getCurrentTarget() { return currentTarget; }
 
-    private void rotateToward(ClientPlayerEntity player, Entity target) {
+    private void rotateToward(LocalPlayer player, Entity target) {
         double dx = target.getX() - player.getX();
         double dy = (target.getY() + target.getHeight() / 2.0)
                   - (player.getY() + player.getEyeHeight(player.getPose()));

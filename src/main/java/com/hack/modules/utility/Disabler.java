@@ -1,8 +1,8 @@
 package com.hack.modules.utility;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 
 /**
@@ -34,7 +34,7 @@ import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
  */
 public class Disabler extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting modeSetting  = new Setting("Mode",   0.0f, 0.0f, 2.0f);
     public final Setting intensitySetting = new Setting("Intensity", 5.0f, 1.0f, 20.0f);
 
@@ -47,7 +47,7 @@ public class Disabler extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         int mode      = (int) modeSetting.value;

@@ -2,10 +2,10 @@ package com.hack.mixins;
 
 import com.hack.HackClient;
 import com.hack.modules.combat.HitboxExtend;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.Box;
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.AABB;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -38,7 +38,7 @@ public class HitboxMixin {
 
         if (HackClient.moduleManager == null) return;
 
-        MinecraftClient mc = MinecraftClient.getInstance();
+        MinecraftClient mc = Minecraft.getInstance();
         if (mc.player == null) return;
 
         // Skip local player

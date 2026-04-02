@@ -1,10 +1,10 @@
 package com.hack.modules.utility;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.item.Items;
-import net.minecraft.item.ItemStack;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Itemstack;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.screen.PlayerScreenHandler;
 
@@ -26,7 +26,7 @@ import net.minecraft.screen.PlayerScreenHandler;
  */
 public class AutoTotem extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     public final Setting healthSetting = new Setting("HP Threshold", 10.0f, 1.0f, 20.0f);
     public final Setting alwaysSetting = new Setting("Always",        0.0f, 0.0f,  1.0f);
@@ -47,7 +47,7 @@ public class AutoTotem extends HackModule {
         if (!isEnabled()) return;
         if (mc.interactionManager == null) return;
 
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         // Cooldown to avoid spamming slot clicks

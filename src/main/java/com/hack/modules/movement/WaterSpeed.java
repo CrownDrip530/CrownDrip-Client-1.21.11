@@ -1,8 +1,8 @@
 package com.hack.modules.movement;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * WaterSpeed — sprint speed on water surface while Jesus is active.
@@ -10,7 +10,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
  */
 public class WaterSpeed extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting speedSetting = new Setting("Speed", 0.6f, 0.1f, 2.0f);
 
     public WaterSpeed() {
@@ -22,7 +22,7 @@ public class WaterSpeed extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         if (!p.isTouchingWater() && !p.isInLava()) return;

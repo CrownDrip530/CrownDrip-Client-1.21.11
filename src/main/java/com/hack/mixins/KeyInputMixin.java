@@ -3,7 +3,7 @@ package com.hack.mixins;
 import com.hack.HackClient;
 import com.hack.gui.ClickGUI;
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,7 +27,7 @@ public class KeyInputMixin {
     @Inject(method = "tick", at = @At("HEAD"))
     private void onTick(CallbackInfo ci) {
         if (HackClient.moduleManager == null) return;
-        MinecraftClient mc = MinecraftClient.getInstance();
+        MinecraftClient mc = Minecraft.getInstance();
         if (mc.player == null) return;
 
         long window = mc.getWindow().getHandle();

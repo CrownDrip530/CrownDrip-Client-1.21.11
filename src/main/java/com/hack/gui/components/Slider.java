@@ -1,8 +1,8 @@
 package com.hack.gui.components;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 
 /**
  * Slider - A draggable slider widget for adjusting module settings.
@@ -70,7 +70,7 @@ public class Slider {
         // Draw label above the bar: "SettingName: CurrentValue"
         // Format: one decimal place (e.g. "Reach: 6.0", "Size: 0.5")
         String label = setting.name + ": " + String.format("%.1f", setting.value);
-        ctx.drawTextWithShadow(MinecraftClient.getInstance().textRenderer,
+        ctx.drawTextWithShadow(Minecraft.getInstance().textRenderer,
                 label, x, y - 10, COLOR_TEXT);
     }
 

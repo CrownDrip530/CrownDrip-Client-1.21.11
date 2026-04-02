@@ -1,8 +1,8 @@
 package com.hack.modules.utility;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * AntiHunger — keeps food and saturation at maximum every tick.
@@ -16,7 +16,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
  */
 public class AntiHunger extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     public AntiHunger() {
         super("AntiHunger", "Utility");
@@ -25,7 +25,7 @@ public class AntiHunger extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         p.getHungerManager().setFoodLevel(20);

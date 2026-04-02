@@ -1,9 +1,9 @@
 package com.hack.modules.combat;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -33,14 +33,14 @@ import java.util.UUID;
  */
 public class AntiBot extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     // Set of entity UUIDs we've identified as bots
     private final Set<UUID> confirmedBots = new HashSet<>();
 
     // Track how many ticks each entity has been stationary
     private final java.util.Map<UUID, Integer> stillTicks = new java.util.HashMap<>();
-    private final java.util.Map<UUID, net.minecraft.util.math.Vec3d> lastPos = new java.util.HashMap<>();
+    private final java.util.Map<UUID, net.minecraft.world.phys.Vec3> lastPos = new java.util.HashMap<>();
 
     private static final int STILL_THRESHOLD = 40; // 2 seconds of no movement = bot
 
@@ -64,8 +64,8 @@ public class AntiBot extends HackModule {
             }
 
             // Heuristic 2: Entity hasn't moved for STILL_THRESHOLD ticks
-            net.minecraft.util.math.Vec3d pos = new net.minecraft.util.math.Vec3d(player.getX(), player.getY(), player.getZ());
-            net.minecraft.util.math.Vec3d prev = lastPos.get(id);
+            net.minecraft.world.phys.Vec3 pos = new net.minecraft.world.phys.Vec3(player.getX(), player.getY(), player.getZ());
+            net.minecraft.world.phys.Vec3 prev = lastPos.get(id);
             if (prev != null && pos.squaredDistanceTo(prev) < 0.0001) {
                 int ticks = stillTicks.getOrDefault(id, 0) + 1;
                 stillTicks.put(id, ticks);

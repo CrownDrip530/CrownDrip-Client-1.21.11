@@ -1,8 +1,8 @@
 package com.hack.modules.combat;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * AntiKnockback - Reduces or removes knockback when hit.
@@ -25,7 +25,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
  */
 public class AntiKnockback extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting strengthSetting = new Setting("Reduction", 1.0f, 0.0f, 1.0f);
 
     public AntiKnockback() {
@@ -36,7 +36,7 @@ public class AntiKnockback extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         // If player has a velocity that looks like knockback (horizontal spike),

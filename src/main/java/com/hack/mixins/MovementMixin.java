@@ -4,7 +4,7 @@ import com.hack.HackClient;
 import com.hack.modules.movement.FlyHack;
 import com.hack.modules.movement.NoFall;
 import com.hack.modules.utility.NoClip;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.player.LocalPlayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -20,14 +20,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * saying the player is on the ground every tick, so fall distance never
  * accumulates server-side and no fall damage is applied.
  */
-@Mixin(ClientPlayerEntity.class)
+@Mixin(LocalPlayer.class)
 public class MovementMixin {
 
     @Inject(method = "sendMovementPackets", at = @At("HEAD"))
     private void beforeMovementPacket(CallbackInfo ci) {
         if (HackClient.moduleManager == null) return;
 
-        ClientPlayerEntity player = (ClientPlayerEntity)(Object) this;
+        LocalPlayer player = (LocalPlayer)(Object) this;
 
         // NoFall: force onGround=true in every packet so server never registers a fall
         NoFall noFall = HackClient.moduleManager.get(NoFall.class);

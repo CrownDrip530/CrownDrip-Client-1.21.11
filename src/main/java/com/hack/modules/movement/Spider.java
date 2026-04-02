@@ -1,10 +1,10 @@
 package com.hack.modules.movement;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 
 /**
  * Spider - Climb up any wall like a spider.
@@ -23,7 +23,7 @@ import net.minecraft.util.math.Direction;
  */
 public class Spider extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting speedSetting = new Setting("ClimbSpeed", 0.2f, 0.1f, 1.0f);
 
     public Spider() {
@@ -34,7 +34,7 @@ public class Spider extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         // Check if player is horizontally colliding with something (touching a wall)

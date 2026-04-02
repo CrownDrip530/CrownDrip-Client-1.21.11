@@ -1,10 +1,10 @@
 package com.hack.modules.movement;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.block.Blocks;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Blocks;
 
 /**
  * Jesus - Walk on water (and lava).
@@ -28,7 +28,7 @@ import net.minecraft.block.Blocks;
  */
 public class Jesus extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     private int bounceTimer = 0;
 
     public Jesus() {
@@ -38,7 +38,7 @@ public class Jesus extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         // Activate when in water/lava OR when just above water surface (within 0.5 blocks)
@@ -46,11 +46,11 @@ public class Jesus extends HackModule {
         boolean aboveWater = false;
         if (!inFluid) {
             // Check if there's water just below us
-            net.minecraft.util.math.BlockPos below = net.minecraft.util.math.BlockPos.ofFloored(
+            net.minecraft.core.BlockPos below = net.minecraft.core.BlockPos.ofFloored(
                 p.getX(), p.getY() - 0.5, p.getZ());
             var blockBelow = mc.world != null ? mc.world.getBlockState(below).getBlock() : null;
-            aboveWater = blockBelow == net.minecraft.block.Blocks.WATER ||
-                         blockBelow == net.minecraft.block.Blocks.LAVA;
+            aboveWater = blockBelow == net.minecraft.world.level.block.Blocks.WATER ||
+                         blockBelow == net.minecraft.world.level.block.Blocks.LAVA;
         }
         if (!inFluid && !aboveWater) return;
 

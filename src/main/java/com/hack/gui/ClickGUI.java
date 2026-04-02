@@ -3,8 +3,8 @@ package com.hack.gui;
 import com.hack.ModuleManager;
 import com.hack.gui.components.Slider;
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.Text;
@@ -39,7 +39,7 @@ import java.util.stream.Collectors;
 public class ClickGUI extends Screen {
 
     // ── filter state ───────────────────────────────────────────
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     private TextFieldWidget searchField;
     private String activeCategory = null;
     private static final List<String> CATS = List.of("Movement","Combat","Visual","Utility");
@@ -446,7 +446,7 @@ public class ClickGUI extends Screen {
                             ModuleManager.get(com.hack.modules.utility.Teleport.class);
                     if (tp != null) {
                         tp.prefillCurrentPosition();
-                        MinecraftClient.getInstance().setScreen(new TeleportGUI(tp));
+                        Minecraft.getInstance().setScreen(new TeleportGUI(tp));
                     }
                 } else {
                     m.toggle();

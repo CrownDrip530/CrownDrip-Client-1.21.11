@@ -2,7 +2,7 @@ package com.hack.mixins;
 
 import com.hack.HackClient;
 import com.hack.modules.utility.AntiLagBack;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.packet.s2c.play.PlayerPositionLookS2CPacket;
 import org.spongepowered.asm.mixin.Mixin;
@@ -48,7 +48,7 @@ public class AntiLagBackMixin {
             return;
         }
 
-        MinecraftClient mc = MinecraftClient.getInstance();
+        MinecraftClient mc = Minecraft.getInstance();
         if (mc.player == null) return;
 
         // Block-all mode: cancel every correction

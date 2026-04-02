@@ -1,8 +1,8 @@
 package com.hack.modules.utility;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.slot.SlotActionType;
 
@@ -12,7 +12,7 @@ import net.minecraft.screen.slot.SlotActionType;
  */
 public class ChestStealer extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     private int delay = 0;
 
     public ChestStealer() { super("ChestStealer", "Utility"); }
@@ -20,7 +20,7 @@ public class ChestStealer extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null || mc.interactionManager == null) return;
         if (delay > 0) { delay--; return; }
 

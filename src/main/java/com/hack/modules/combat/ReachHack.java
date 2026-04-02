@@ -1,12 +1,12 @@
 package com.hack.modules.combat;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.Box;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.phys.AABB;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class ReachHack extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting reachSetting = new Setting("Reach", 6.0f, 3.0f, 100.0f);
 
     private int attackCooldown = 0;
@@ -34,7 +34,7 @@ public class ReachHack extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null || mc.world == null || mc.interactionManager == null) return;
 
         if (attackCooldown > 0) { attackCooldown--; return; }

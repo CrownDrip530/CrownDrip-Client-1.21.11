@@ -2,9 +2,9 @@ package com.hack.mixins;
 
 import com.hack.HackClient;
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,9 +16,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * ChatMixin - Intercepts outgoing chat to handle .bind commands.
  *
  * 1.21.11 FIX:
- * - sendChatMessage moved from ClientPlayerEntity to ClientPlayNetworkHandler
+ * - sendChatMessage moved from LocalPlayer to ClientPlayNetworkHandler
  * - Signature changed from (String, MessageSignatureData) to just (String)
- * - Mixin target is now ClientPlayNetworkHandler instead of ClientPlayerEntity
+ * - Mixin target is now ClientPlayNetworkHandler instead of LocalPlayer
  *
  * USAGE:
  *   .bind Fly f         -> bind F key to Fly
@@ -37,8 +37,8 @@ public class ChatMixin {
         if (!message.startsWith(".")) return;
         if (HackClient.moduleManager == null) return;
 
-        MinecraftClient mc = MinecraftClient.getInstance();
-        ClientPlayerEntity player = mc.player;
+        MinecraftClient mc = Minecraft.getInstance();
+        LocalPlayer player = mc.player;
         if (player == null) return;
 
         String lower = message.toLowerCase().trim();
@@ -101,7 +101,7 @@ public class ChatMixin {
         chat(player, "§aBound §f" + target.getName() + " §ato §f[" + friendly + "]");
     }
 
-    private void chat(ClientPlayerEntity player, String text) {
+    private void chat(LocalPlayer player, String text) {
         player.sendMessage(Text.literal(text), false);
     }
 

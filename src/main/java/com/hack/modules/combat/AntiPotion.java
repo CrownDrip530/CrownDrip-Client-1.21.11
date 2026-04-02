@@ -1,8 +1,8 @@
 package com.hack.modules.combat;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
  */
 public class AntiPotion extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     private static final String[] NEGATIVE_EFFECTS = {
         "slowness", "weakness", "blindness", "nausea", "poison",
@@ -28,7 +28,7 @@ public class AntiPotion extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         for (String effectId : NEGATIVE_EFFECTS) {

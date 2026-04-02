@@ -1,8 +1,8 @@
 package com.hack.modules.utility;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * Freecam - Detaches your camera so it flies freely while your body stays still.
@@ -25,7 +25,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
  */
 public class Freecam extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     // Camera position (moves freely)
     private double camX, camY, camZ;
@@ -38,7 +38,7 @@ public class Freecam extends HackModule {
 
     @Override
     public void onEnable() {
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         // Save player's current position as starting camera position
@@ -62,7 +62,7 @@ public class Freecam extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled() || !initialized) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         // Freeze the player body — don't let it move

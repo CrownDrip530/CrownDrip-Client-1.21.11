@@ -4,7 +4,7 @@ import com.hack.HackClient;
 import com.hack.modules.utility.Freecam;
 import net.minecraft.client.render.Camera;
 import net.minecraft.world.BlockView;
-import net.minecraft.entity.Entity;
+import net.minecraft.world.entity.Entity;
 import com.hack.mixins.CameraAccessor;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

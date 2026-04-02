@@ -1,10 +1,10 @@
 package com.hack.modules.movement;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.entity.vehicle.BoatEntity;
-import net.minecraft.util.Hand;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.InteractionHand;
 
 /**
  * BoatFly — fly while mounted in a boat.
@@ -22,7 +22,7 @@ import net.minecraft.util.Hand;
  */
 public class BoatFly extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting speedSetting = new Setting("Speed", 0.5f, 0.1f, 2.0f);
 
     public BoatFly() {
@@ -34,7 +34,7 @@ public class BoatFly extends HackModule {
     public void onDisable() {
         // Dismount the boat on disable by zeroing boat velocity
         // (server will re-apply gravity naturally)
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
         if (p.hasVehicle() && p.getVehicle() instanceof BoatEntity b) {
             b.setVelocity(0, 0, 0);
@@ -44,7 +44,7 @@ public class BoatFly extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null || mc.world == null) return;
 
         if (!(p.getVehicle() instanceof BoatEntity boatEntity)) return;

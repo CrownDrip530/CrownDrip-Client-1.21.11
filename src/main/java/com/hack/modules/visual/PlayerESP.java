@@ -3,11 +3,11 @@ package com.hack.modules.visual;
 import com.hack.modules.visual.ArmorESP;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 /**
  * PlayerESP - Draws 2D boxes around players on screen.
@@ -18,7 +18,7 @@ import net.minecraft.util.math.Vec3d;
  */
 public class PlayerESP extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     public PlayerESP() {
         super("PlayerESP", "Visual");

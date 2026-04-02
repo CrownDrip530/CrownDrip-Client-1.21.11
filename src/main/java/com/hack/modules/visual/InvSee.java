@@ -1,12 +1,12 @@
 package com.hack.modules.visual;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Itemstack;
+import net.minecraft.world.phys.Vec3;
 
 /**
  * InvSee — shows nearby players' visible equipment floating above them.
@@ -17,7 +17,7 @@ import net.minecraft.util.math.Vec3d;
  */
 public class InvSee extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting rangeSetting = new Setting("Range", 20.0f, 5.0f, 50.0f);
 
     public InvSee() {

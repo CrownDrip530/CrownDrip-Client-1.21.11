@@ -1,8 +1,8 @@
 package com.hack.modules.movement;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * FlyHack - Toggle-only via GUI or keybind set with .bind
@@ -23,7 +23,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
  */
 public class FlyHack extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     private int antiKickTimer = 0;
 
     public final Setting speedSetting = new Setting("Speed", 0.15f, 0.05f, 1.0f);
@@ -36,7 +36,7 @@ public class FlyHack extends HackModule {
 
     @Override
     public void onEnable() {
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
         p.getAbilities().flying      = true;
         p.getAbilities().allowFlying = true;
@@ -44,7 +44,7 @@ public class FlyHack extends HackModule {
 
     @Override
     public void onDisable() {
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
         p.getAbilities().flying      = false;
         p.getAbilities().allowFlying = false;
@@ -55,7 +55,7 @@ public class FlyHack extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         float spd = speedSetting.value;

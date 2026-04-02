@@ -13,7 +13,7 @@ import com.hack.modules.visual.AntiBlind;
 import com.hack.modules.visual.StorageESP;
 import com.hack.modules.visual.CaveMapper;
 import com.hack.modules.visual.Xray;
-import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.render.RenderTickCounter;
 import org.spongepowered.asm.mixin.Mixin;

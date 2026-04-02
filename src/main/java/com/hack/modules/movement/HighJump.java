@@ -1,15 +1,15 @@
 package com.hack.modules.movement;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * HighJump — jump much higher than normal.
  */
 public class HighJump extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting heightSetting = new Setting("Height", 2.0f, 1.0f, 10.0f);
 
     public HighJump() {
@@ -21,7 +21,7 @@ public class HighJump extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
         // When jumping, boost Y velocity
         if (p.getVelocity().y > 0.1 && p.getVelocity().y < 0.5) {

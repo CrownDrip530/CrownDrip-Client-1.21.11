@@ -3,10 +3,10 @@ package com.hack.modules.visual;
 import com.hack.modules.visual.ArmorESP;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.Vec3;
 
 /**
  * Tracers - Draws lines from screen center to each player.
@@ -14,7 +14,7 @@ import net.minecraft.util.math.Vec3d;
  */
 public class Tracers extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     public Tracers() {
         super("Tracers", "Visual");

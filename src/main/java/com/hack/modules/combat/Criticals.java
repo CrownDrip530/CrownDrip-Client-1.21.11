@@ -2,8 +2,8 @@ package com.hack.modules.combat;
 
 import com.hack.HackClient;
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * Criticals — makes every attack a critical hit by jumping just before striking.
@@ -18,7 +18,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
  */
 public class Criticals extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     public Criticals() {
         super("Criticals", "Combat");
@@ -29,7 +29,7 @@ public class Criticals extends HackModule {
      */
     public void prepareCrit() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
         if (p.getAbilities().flying) return;
         if (!p.isOnGround()) return;
@@ -41,7 +41,7 @@ public class Criticals extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
         if (p.getAbilities().flying) return;
 

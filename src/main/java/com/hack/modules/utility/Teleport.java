@@ -1,7 +1,7 @@
 package com.hack.modules.utility;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 
 /**
  * Teleport - Instantly moves the player to a set X Y Z coordinate.
@@ -18,7 +18,7 @@ import net.minecraft.client.MinecraftClient;
  */
 public class Teleport extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     public double targetX = 0;
     public double targetY = 64;

@@ -1,16 +1,16 @@
 package com.hack.modules.utility;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.item.ItemStack;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.item.Itemstack;
 
 /**
  * AutoEat — automatically eats food when hunger drops below threshold.
  */
 public class AutoEat extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     public final Setting threshSetting = new Setting("Hunger", 15.0f, 1.0f, 20.0f);
     private int savedSlot = -1;
 
@@ -23,7 +23,7 @@ public class AutoEat extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null || mc.interactionManager == null) return;
 
         if (p.getHungerManager().getFoodLevel() >= (int) threshSetting.value) {
@@ -57,7 +57,7 @@ public class AutoEat extends HackModule {
         }
     }
 
-    private void restoreSlot(ClientPlayerEntity p) {
+    private void restoreSlot(LocalPlayer p) {
         mc.options.useKey.setPressed(false);
         if (savedSlot != -1) {
             p.getInventory().setSelectedSlot(savedSlot);

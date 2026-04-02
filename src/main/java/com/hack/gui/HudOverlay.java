@@ -2,8 +2,8 @@ package com.hack.gui;
 
 import com.hack.ModuleManager;
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 
 import java.util.Comparator;
 import java.util.List;
@@ -33,7 +33,7 @@ public class HudOverlay {
      * DrawContext is the 1.20.1 way to draw text and filled rectangles.
      */
     public void render(DrawContext ctx) {
-        MinecraftClient mc = MinecraftClient.getInstance();
+        MinecraftClient mc = Minecraft.getInstance();
         if (mc.player == null || mc.world == null) return;
 
         int screenWidth = mc.getWindow().getScaledWidth();

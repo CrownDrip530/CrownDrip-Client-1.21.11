@@ -1,8 +1,8 @@
 package com.hack.modules.movement;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 
 /**
  * BunnyHop — auto-jumps at perfect timing to maintain sprint speed.
@@ -10,14 +10,14 @@ import net.minecraft.client.network.ClientPlayerEntity;
  */
 public class BunnyHop extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     public BunnyHop() { super("BunnyHop", "Movement"); }
 
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
         if (!mc.options.forwardKey.isPressed() && !mc.options.backKey.isPressed()
             && !mc.options.leftKey.isPressed() && !mc.options.rightKey.isPressed()) return;

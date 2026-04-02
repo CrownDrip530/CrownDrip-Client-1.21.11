@@ -1,16 +1,16 @@
 package com.hack.modules.combat;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.item.ItemStack;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.item.Itemstack;
 
 /**
  * AutoSword — automatically switches to best sword/weapon before attacking.
  */
 public class AutoSword extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     private int savedSlot = -1;
 
     public AutoSword() { super("AutoSword", "Combat"); }
@@ -18,7 +18,7 @@ public class AutoSword extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         if (!mc.options.attackKey.isPressed()) {
@@ -62,7 +62,7 @@ public class AutoSword extends HackModule {
         return material > 0 ? material : -1;
     }
 
-    private void restoreSlot(ClientPlayerEntity p) {
+    private void restoreSlot(LocalPlayer p) {
         if (savedSlot != -1) {
             p.getInventory().setSelectedSlot(savedSlot);
             p.networkHandler.sendPacket(p.getInventory().createSlotSetPacket(savedSlot));

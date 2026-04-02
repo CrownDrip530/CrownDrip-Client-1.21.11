@@ -1,7 +1,7 @@
 package com.hack.modules.utility;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.packet.Packet;
 import org.lwjgl.glfw.GLFW;
 
@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class Blink extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
     private final List<Packet<?>> bufferedPackets = new ArrayList<>();
 
     public Blink() {

@@ -1,8 +1,8 @@
 package com.hack.modules.visual;
 
 import com.hack.modules.HackModule;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -16,7 +16,7 @@ import net.minecraft.util.Identifier;
  */
 public class AntiBlind extends HackModule {
 
-    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = Minecraft.getInstance();
 
     private static final String[] VISUAL_EFFECTS = {
         "blindness", "darkness", "nausea"
@@ -29,7 +29,7 @@ public class AntiBlind extends HackModule {
     @Override
     public void onTick() {
         if (!isEnabled()) return;
-        ClientPlayerEntity p = mc.player;
+        LocalPlayer p = mc.player;
         if (p == null) return;
 
         for (String effectId : VISUAL_EFFECTS) {
