@@ -1,0 +1,43 @@
+package com.hack.modules.utility;
+
+import com.hack.modules.HackModule;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.screen.GenericContainerScreenHandler;
+import net.minecraft.screen.slot.SlotActionType;
+
+/**
+ * ChestStealer — automatically takes all items from open chests.
+ * Just open a chest and it empties it into your inventory.
+ */
+public class ChestStealer extends HackModule {
+
+    private final MinecraftClient mc = MinecraftClient.getInstance();
+    private int delay = 0;
+
+    public ChestStealer() { super("ChestStealer", "Utility"); }
+
+    @Override
+    public void onTick() {
+        if (!isEnabled()) return;
+        ClientPlayerEntity p = mc.player;
+        if (p == null || mc.interactionManager == null) return;
+        if (delay > 0) { delay--; return; }
+
+        if (!(p.currentScreenHandler instanceof GenericContainerScreenHandler handler))
+            return;
+
+        int syncId = handler.syncId;
+        int chestSlots = handler.getInventory().size();
+
+        // Shift-click each chest slot to take items
+        for (int i = 0; i < chestSlots; i++) {
+            if (!handler.getSlot(i).getStack().isEmpty()) {
+                mc.interactionManager.clickSlot(syncId, i, 0,
+                    SlotActionType.QUICK_MOVE, p);
+                delay = 2;
+                return; // one per 2 ticks
+            }
+        }
+    }
+}
