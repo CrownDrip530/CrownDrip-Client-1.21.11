@@ -34,7 +34,7 @@ import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
  */
 public class Disabler extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting modeSetting  = new Setting("Mode",   0.0f, 0.0f, 2.0f);
     public final Setting intensitySetting = new Setting("Intensity", 5.0f, 1.0f, 20.0f);
 

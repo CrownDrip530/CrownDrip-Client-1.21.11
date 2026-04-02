@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class CaveMapper extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting rangeSetting = new Setting("Range", 24.0f, 8.0f, 48.0f);
     public final Setting sizeSetting  = new Setting("Size",  80.0f, 40.0f, 160.0f);
 

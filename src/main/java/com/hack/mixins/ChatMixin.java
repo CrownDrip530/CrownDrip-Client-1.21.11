@@ -37,7 +37,7 @@ public class ChatMixin {
         if (!message.startsWith(".")) return;
         if (HackClient.moduleManager == null) return;
 
-        MinecraftClient mc = Minecraft.getInstance();
+        Minecraft mc = Minecraft.getInstance();
         LocalPlayer player = mc.player;
         if (player == null) return;
 

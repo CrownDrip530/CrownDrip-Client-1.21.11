@@ -33,7 +33,7 @@ import java.util.UUID;
  */
 public class AntiBot extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     // Set of entity UUIDs we've identified as bots
     private final Set<UUID> confirmedBots = new HashSet<>();

@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
  */
 public class AntiPotion extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     private static final String[] NEGATIVE_EFFECTS = {
         "slowness", "weakness", "blindness", "nausea", "poison",

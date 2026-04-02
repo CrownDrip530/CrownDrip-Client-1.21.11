@@ -13,7 +13,7 @@ import net.minecraft.world.phys.Vec3;
  */
 public class NameTags extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     public NameTags() {
         super("NameTags", "Visual");

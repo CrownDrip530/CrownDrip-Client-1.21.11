@@ -38,7 +38,7 @@ public class HitboxMixin {
 
         if (HackClient.moduleManager == null) return;
 
-        MinecraftClient mc = Minecraft.getInstance();
+        Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) return;
 
         // Skip local player

@@ -23,7 +23,7 @@ import net.minecraft.client.player.LocalPlayer;
  */
 public class FlyHack extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     private int antiKickTimer = 0;
 
     public final Setting speedSetting = new Setting("Speed", 0.15f, 0.05f, 1.0f);

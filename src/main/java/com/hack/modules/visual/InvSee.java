@@ -17,7 +17,7 @@ import net.minecraft.world.phys.Vec3;
  */
 public class InvSee extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting rangeSetting = new Setting("Range", 20.0f, 5.0f, 50.0f);
 
     public InvSee() {

@@ -23,7 +23,7 @@ import net.minecraft.client.Minecraft;
  */
 public class AutoClicker extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting cpsSetting = new Setting("CPS", 10.0f, 1.0f, 20.0f);
 
     private int tickCounter = 0;

@@ -17,7 +17,7 @@ import net.minecraft.world.phys.Vec3;
  */
 public class TargetESP extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     private int animTick = 0;
 
     public TargetESP() {

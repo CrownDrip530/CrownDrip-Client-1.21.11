@@ -22,7 +22,7 @@ public class StepMixin {
     private void onGetStepHeight(CallbackInfoReturnable<Float> cir) {
         if (HackClient.moduleManager == null) return;
 
-        MinecraftClient mc = Minecraft.getInstance();
+        Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) return;
 
         // Only override for local player

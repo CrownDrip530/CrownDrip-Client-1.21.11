@@ -23,7 +23,7 @@ import net.minecraft.core.Direction;
  */
 public class Spider extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting speedSetting = new Setting("ClimbSpeed", 0.2f, 0.1f, 1.0f);
 
     public Spider() {

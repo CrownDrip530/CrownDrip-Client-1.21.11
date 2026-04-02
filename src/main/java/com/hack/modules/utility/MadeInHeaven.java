@@ -28,7 +28,7 @@ import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
  */
 public class MadeInHeaven extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     // Multiplier: 1x to 5x (1x = normal speed, 5x = five times faster)
     public final Setting multiplier = new Setting("Speed", 2.0f, 1.0f, 5.0f);

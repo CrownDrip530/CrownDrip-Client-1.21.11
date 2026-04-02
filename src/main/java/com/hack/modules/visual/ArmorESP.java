@@ -18,7 +18,7 @@ import net.minecraft.world.phys.Vec3;
  */
 public class ArmorESP extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     public ArmorESP() {
         super("ArmorESP", "Visual");
@@ -103,7 +103,7 @@ public class ArmorESP extends HackModule {
      * Projects a world position to screen coordinates.
      * Used by all visual modules.
      */
-    public static int[] staticWorldToScreen(Vec3d worldPos, MinecraftClient mc) {
+    public static int[] staticWorldToScreen(Vec3d worldPos, Minecraft mc) {
         if (mc.gameRenderer == null) return null;
         var camera = mc.gameRenderer.getCamera();
         var focusedEntity = camera.getFocusedEntity();

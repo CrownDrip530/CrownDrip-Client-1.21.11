@@ -48,7 +48,7 @@ public class AntiLagBackMixin {
             return;
         }
 
-        MinecraftClient mc = Minecraft.getInstance();
+        Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) return;
 
         // Block-all mode: cancel every correction

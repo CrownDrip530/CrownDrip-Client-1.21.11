@@ -19,7 +19,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class Xray extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting rangeSetting = new Setting("Range", 8.0f, 3.0f, 16.0f);
 
     // CopyOnWriteArrayList is thread-safe for read/write from different threads

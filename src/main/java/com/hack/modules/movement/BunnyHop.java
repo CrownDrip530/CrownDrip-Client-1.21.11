@@ -10,7 +10,7 @@ import net.minecraft.client.player.LocalPlayer;
  */
 public class BunnyHop extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     public BunnyHop() { super("BunnyHop", "Movement"); }
 

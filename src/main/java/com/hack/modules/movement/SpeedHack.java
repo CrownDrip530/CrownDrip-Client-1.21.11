@@ -14,7 +14,7 @@ import net.minecraft.client.player.LocalPlayer;
  */
 public class SpeedHack extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting speedSetting = new Setting("Speed", 0.5f, 0.1f, 2.0f);
 
     public SpeedHack() {

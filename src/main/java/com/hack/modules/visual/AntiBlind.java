@@ -16,7 +16,7 @@ import net.minecraft.util.Identifier;
  */
 public class AntiBlind extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     private static final String[] VISUAL_EFFECTS = {
         "blindness", "darkness", "nausea"

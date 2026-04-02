@@ -9,7 +9,7 @@ import net.minecraft.client.Minecraft;
  */
 public class AntiAim extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting modeSetting = new Setting("Mode", 0.0f, 0.0f, 2.0f);
     private int tick = 0;
 

@@ -13,7 +13,7 @@ import net.minecraft.client.player.LocalPlayer;
  */
 public class Phase extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     public Phase() {
         super("Phase", "Movement");

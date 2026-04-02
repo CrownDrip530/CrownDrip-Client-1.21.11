@@ -11,7 +11,7 @@ import net.minecraft.client.Minecraft;
  */
 public class Fullbright extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     private double originalGamma = 1.0;
 
     public Fullbright() {

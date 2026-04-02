@@ -26,7 +26,7 @@ import net.minecraft.screen.PlayerScreenHandler;
  */
 public class AutoTotem extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     public final Setting healthSetting = new Setting("HP Threshold", 10.0f, 1.0f, 20.0f);
     public final Setting alwaysSetting = new Setting("Always",        0.0f, 0.0f,  1.0f);

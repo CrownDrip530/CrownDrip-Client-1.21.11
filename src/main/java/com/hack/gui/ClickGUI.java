@@ -39,7 +39,7 @@ import java.util.stream.Collectors;
 public class ClickGUI extends Screen {
 
     // ── filter state ───────────────────────────────────────────
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     private TextFieldWidget searchField;
     private String activeCategory = null;
     private static final List<String> CATS = List.of("Movement","Combat","Visual","Utility");

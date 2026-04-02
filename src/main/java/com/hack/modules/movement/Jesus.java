@@ -28,7 +28,7 @@ import net.minecraft.world.level.block.Blocks;
  */
 public class Jesus extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     private int bounceTimer = 0;
 
     public Jesus() {

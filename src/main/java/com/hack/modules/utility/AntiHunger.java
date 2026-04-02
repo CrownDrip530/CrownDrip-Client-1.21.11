@@ -16,7 +16,7 @@ import net.minecraft.client.player.LocalPlayer;
  */
 public class AntiHunger extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     public AntiHunger() {
         super("AntiHunger", "Utility");

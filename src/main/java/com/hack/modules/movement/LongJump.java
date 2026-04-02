@@ -10,7 +10,7 @@ import net.minecraft.client.player.LocalPlayer;
  */
 public class LongJump extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting powerSetting = new Setting("Power", 3.0f, 1.0f, 10.0f);
     private boolean wasOnGround = false;
 

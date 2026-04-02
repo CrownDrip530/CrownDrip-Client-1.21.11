@@ -9,7 +9,7 @@ import net.minecraft.client.player.LocalPlayer;
  */
 public class HighJump extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting heightSetting = new Setting("Height", 2.0f, 1.0f, 10.0f);
 
     public HighJump() {

@@ -17,7 +17,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class StorageESP extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting rangeSetting = new Setting("Range", 16.0f, 5.0f, 32.0f);
 
     private final CopyOnWriteArrayList<int[]> storagePositions = new CopyOnWriteArrayList<>();

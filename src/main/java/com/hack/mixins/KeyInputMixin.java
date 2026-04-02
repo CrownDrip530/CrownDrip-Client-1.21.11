@@ -27,7 +27,7 @@ public class KeyInputMixin {
     @Inject(method = "tick", at = @At("HEAD"))
     private void onTick(CallbackInfo ci) {
         if (HackClient.moduleManager == null) return;
-        MinecraftClient mc = Minecraft.getInstance();
+        Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) return;
 
         long window = mc.getWindow().getHandle();

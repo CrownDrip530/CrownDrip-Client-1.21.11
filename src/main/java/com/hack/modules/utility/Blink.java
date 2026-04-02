@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class Blink extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     private final List<Packet<?>> bufferedPackets = new ArrayList<>();
 
     public Blink() {

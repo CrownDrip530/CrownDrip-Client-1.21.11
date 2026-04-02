@@ -3,7 +3,7 @@ package com.hack.modules.combat;
 import com.hack.modules.HackModule;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.entity.decoration.EndCrystalEntity;
+import net.minecraft.world.entity.boss.enderdragon.EndCrystal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.InteractionHand;
@@ -30,7 +30,7 @@ import java.util.List;
  */
 public class AutoCrystal extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting rangeSetting  = new Setting("Range",  6.0f, 3.0f, 10.0f);
     public final Setting delaySetting  = new Setting("Delay",  1.0f, 0.0f,  5.0f);
 

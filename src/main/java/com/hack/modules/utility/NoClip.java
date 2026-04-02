@@ -28,7 +28,7 @@ import net.minecraft.client.player.LocalPlayer;
  */
 public class NoClip extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     public NoClip() {
         super("NoClip", "Utility");

@@ -15,7 +15,7 @@ import net.minecraft.screen.slot.SlotActionType;
  */
 public class AutoArmor extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     private int cooldown = 0;
 
     public AutoArmor() { super("AutoArmor", "Utility"); }

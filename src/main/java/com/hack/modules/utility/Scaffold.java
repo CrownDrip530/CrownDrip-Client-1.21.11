@@ -21,7 +21,7 @@ import net.minecraft.world.phys.Vec3;
  */
 public class Scaffold extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     private int savedSlot = -1;
 
     public Scaffold() {

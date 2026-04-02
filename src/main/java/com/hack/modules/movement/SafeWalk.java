@@ -10,7 +10,7 @@ import net.minecraft.core.BlockPos;
  */
 public class SafeWalk extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     public SafeWalk() { super("SafeWalk", "Movement"); }
 

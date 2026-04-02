@@ -25,7 +25,7 @@ import net.minecraft.client.player.LocalPlayer;
  */
 public class Freecam extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     // Camera position (moves freely)
     private double camX, camY, camZ;

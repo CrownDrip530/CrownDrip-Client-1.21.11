@@ -10,7 +10,7 @@ import net.minecraft.world.item.Itemstack;
  */
 public class AutoSword extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     private int savedSlot = -1;
 
     public AutoSword() { super("AutoSword", "Combat"); }

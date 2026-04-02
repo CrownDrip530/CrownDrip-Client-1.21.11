@@ -9,7 +9,7 @@ import net.minecraft.client.Minecraft;
  */
 public class Derp extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     private int tick = 0;
 
     public Derp() { super("Derp", "Combat"); }

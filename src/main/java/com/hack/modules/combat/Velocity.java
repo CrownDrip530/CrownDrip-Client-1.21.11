@@ -21,7 +21,7 @@ import net.minecraft.client.player.LocalPlayer;
  */
 public class Velocity extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     public final Setting horizontal = new Setting("Horizontal", 100.0f, 0.0f, 100.0f);
     public final Setting vertical   = new Setting("Vertical",    50.0f, 0.0f, 100.0f);

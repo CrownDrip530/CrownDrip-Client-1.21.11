@@ -12,7 +12,7 @@ import net.minecraft.screen.slot.SlotActionType;
  */
 public class ChestStealer extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     private int delay = 0;
 
     public ChestStealer() { super("ChestStealer", "Utility"); }

@@ -18,7 +18,7 @@ import net.minecraft.world.phys.Vec3;
  */
 public class HitboxExtend extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting expandSetting = new Setting("Size", 0.5f, 0.0f, 5.0f);
 
     public HitboxExtend() {

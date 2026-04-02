@@ -18,7 +18,7 @@ import net.minecraft.client.Minecraft;
  */
 public class Teleport extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     public double targetX = 0;
     public double targetY = 64;

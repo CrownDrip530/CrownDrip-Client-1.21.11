@@ -25,7 +25,7 @@ import net.minecraft.client.player.LocalPlayer;
  */
 public class AntiKnockback extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting strengthSetting = new Setting("Reduction", 1.0f, 0.0f, 1.0f);
 
     public AntiKnockback() {

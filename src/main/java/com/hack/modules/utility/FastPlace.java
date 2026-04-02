@@ -10,7 +10,7 @@ import net.minecraft.client.Minecraft;
  */
 public class FastPlace extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     public FastPlace() { super("FastPlace", "Utility"); }
 

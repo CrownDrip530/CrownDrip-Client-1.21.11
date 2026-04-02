@@ -10,7 +10,7 @@ import net.minecraft.world.item.Itemstack;
  */
 public class AutoEat extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting threshSetting = new Setting("Hunger", 15.0f, 1.0f, 20.0f);
     private int savedSlot = -1;
 

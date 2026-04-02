@@ -13,7 +13,7 @@ import net.minecraft.util.hit.HitResult;
  */
 public class ClickTP extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
     public ClickTP() { super("ClickTP", "Utility"); }
 

@@ -10,7 +10,7 @@ import net.minecraft.core.BlockPos;
  */
 public class Nuker extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting rangeSetting = new Setting("Range", 4.0f, 1.0f, 6.0f);
 
     public Nuker() {

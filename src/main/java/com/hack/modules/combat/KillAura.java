@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class KillAura extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     private LivingEntity currentTarget = null;
 
     public final Setting rangeSetting    = new Setting("Range",    4.0f, 1.0f, 10.0f);

@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class ReachHack extends HackModule {
 
-    private final MinecraftClient mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
     public final Setting reachSetting = new Setting("Reach", 6.0f, 3.0f, 100.0f);
 
     private int attackCooldown = 0;
